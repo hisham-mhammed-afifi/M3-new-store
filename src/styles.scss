@@ -36,3 +36,30 @@ body.dark {
   @include mat.all-component-themes(dark.$theme);
   @include reusable.reusable(dark.$theme);
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.gap {
+  gap: 1rem;
+}
+
+.justify-center {
+  justify-content: space-center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}

@@ -1,19 +1,31 @@
-<mat-drawer-container style="height: 100%" autosize>
-  <mat-drawer #drawer mode="side">
-    <p>Auto-resizing sidenav</p>
-  </mat-drawer>
-
-  <div>
-    <button mat-flat-button class="btn-primary" (click)="drawer.toggle()">
-      Toggle sidenav
+<div class="flex flex-column">
+  <mat-toolbar class="toolbar-bg">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
     </button>
+    <span>My App</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button class="btn-primary" (click)="toggleTheme()">
+      <mat-icon> @if(isDark()) { light_mode }@else { dark_mode } </mat-icon>
+    </button>
+    <button mat-icon-button class="btn-secondary">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-toolbar>
+  <!--      Sidenav       -->
+  <mat-drawer-container style="flex-grow: 1" autosize>
+    <mat-drawer #drawer mode="side">
+      <p>Auto-resizing sidenav</p>
+    </mat-drawer>
 
-    <button mat-flat-button>Basic</button>
-    <button mat-flat-button class="btn-primary">Primary</button>
-    <button mat-flat-button class="btn-secondary">secondary</button>
-    <button mat-flat-button class="btn-tertiary">tertiary</button>
-    <button mat-flat-button color="btn-error">error</button>
-    <button mat-flat-button disabled>Disabled</button>
-    <router-outlet></router-outlet>
-  </div>
-</mat-drawer-container>
+    <div>
+      <button mat-flat-button>Basic</button>
+      <button mat-flat-button class="btn-primary">Primary</button>
+      <button mat-flat-button class="btn-secondary">secondary</button>
+      <button mat-flat-button class="btn-tertiary">tertiary</button>
+      <button mat-flat-button color="btn-error">error</button>
+      <button mat-flat-button disabled>Disabled</button>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</div>
