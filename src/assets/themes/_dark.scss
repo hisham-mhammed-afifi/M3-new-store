@@ -1,0 +1,14 @@
+@use "@angular/material-experimental" as matx;
+
+$theme: matx.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: matx.$m3-cyan-palette,
+      tertiary: matx.$m3-orange-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);

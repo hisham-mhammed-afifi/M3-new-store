@@ -1,0 +1,16 @@
+@use "@angular/material" as mat;
+
+@mixin reusable($theme) {
+  .btn-primary {
+    @include mat.button-color($theme, $color-variant: primary);
+  }
+  .btn-secondary {
+    @include mat.button-color($theme, $color-variant: secondary);
+  }
+  .btn-tertiary {
+    @include mat.button-color($theme, $color-variant: tertiary);
+  }
+  .btn-error {
+    @include mat.button-color($theme, $color-variant: error);
+  }
+}
