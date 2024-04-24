@@ -50,27 +50,27 @@ export class AppComponent {
     },
     {
       label: "Today's Deals",
-      path: '/',
+      path: '/Today-deals',
     },
     {
       label: 'Electronics',
-      path: '/asd',
+      path: '/Electronics',
     },
     {
       label: 'Motors',
-      path: '/asd',
+      path: '/Motors',
     },
     {
       label: 'Fashion',
-      path: '/asd',
+      path: '/Fashion',
     },
     {
       label: 'Health & Beauty',
-      path: '/asd',
+      path: '/Health-Beauty',
     },
     {
       label: 'Home & Garden',
-      path: '/qwe',
+      path: '/Home-Garden',
     },
   ];
 
