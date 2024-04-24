@@ -37,6 +37,14 @@ body.dark {
   @include reusable.reusable(dark.$theme);
 }
 
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 .flex {
   display: flex;
 }
@@ -62,4 +70,31 @@ body.dark {
 
 .toolbar-spacer {
   flex: 1 1 auto;
+}
+
+.m-3 {
+  margin: 1rem;
+}
+
+.my-3 {
+  margin: 1rem auto;
+}
+
+.pb-3 {
+  padding-bottom: 1rem;
+}
+
+.autofill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  grid-gap: 1rem;
+}
+
+.overflowY-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.maxh-500 {
+  max-height: 500px;
 }

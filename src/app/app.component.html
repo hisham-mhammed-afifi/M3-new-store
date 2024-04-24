@@ -1,31 +1,106 @@
-<div class="flex flex-column">
+<div class="flex flex-column h-100">
   <mat-toolbar class="toolbar-bg">
-    <button mat-icon-button (click)="drawer.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="toolbar-spacer"></span>
-    <button mat-icon-button class="btn-primary" (click)="toggleTheme()">
-      <mat-icon> @if(isDark()) { light_mode }@else { dark_mode } </mat-icon>
-    </button>
-    <button mat-icon-button class="btn-secondary">
-      <mat-icon>more_vert</mat-icon>
-    </button>
+    <mat-toolbar-row>
+      <img src="assets/images/app-logo.png" alt="New store" />
+      <span style="margin: 0 1rem">Material 3</span>
+
+      <span class="toolbar-spacer"></span>
+      <button mat-stroked-button (click)="openSearchDialog()">
+        <mat-icon>search</mat-icon>
+        <span style="margin: 0 1rem">Ctrl + K</span>
+      </button>
+      <span class="toolbar-spacer"></span>
+
+      <button
+        mat-icon-button
+        class="btn-primary"
+        matBadge="15"
+        matBadgeColor="warn"
+      >
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+
+      <button mat-icon-button class="btn-primary">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="btn-primary"
+        [matMenuTriggerFor]="languagesMenu"
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+
+      <mat-menu #languagesMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon svgIcon="arabic-flag"></mat-icon>
+          <span>Arabic</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon svgIcon="english-flag"></mat-icon>
+          <span>English</span>
+        </button>
+      </mat-menu>
+
+      <button mat-icon-button class="btn-primary" (click)="toggleTheme()">
+        <mat-icon> @if(isDark()) { light_mode }@else { dark_mode } </mat-icon>
+      </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="toolbar-spacer"></span>
+
+      @for(link of links; track $index) {
+      <a
+        mat-button
+        class="primary"
+        [routerLink]="link.path"
+        routerLinkActive="active"
+      >
+        {{ link.label }}
+      </a>
+      }
+
+      <span class="toolbar-spacer"></span>
+    </mat-toolbar-row>
   </mat-toolbar>
   <!--      Sidenav       -->
   <mat-drawer-container style="flex-grow: 1" autosize>
-    <mat-drawer #drawer mode="side">
-      <p>Auto-resizing sidenav</p>
-    </mat-drawer>
+    <mat-drawer #drawer mode="side" [opened]="true">
+      <div class="m-3">
+        <div class="flex align-center gap">
+          <mat-icon>tune</mat-icon>
+          <h4>Filters</h4>
+        </div>
 
-    <div>
-      <button mat-flat-button>Basic</button>
-      <button mat-flat-button class="btn-primary">Primary</button>
-      <button mat-flat-button class="btn-secondary">secondary</button>
-      <button mat-flat-button class="btn-tertiary">tertiary</button>
-      <button mat-flat-button color="btn-error">error</button>
-      <button mat-flat-button disabled>Disabled</button>
-      <router-outlet></router-outlet>
-    </div>
+        <mat-button-toggle-group name="gender" multiple class="my-3">
+          <mat-button-toggle value="women">Women</mat-button-toggle>
+          <mat-button-toggle value="men">Men</mat-button-toggle>
+          <mat-button-toggle value="children">Children</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <mat-divider></mat-divider>
+
+        <div class="flex align-center">
+          <mat-icon>attach_money</mat-icon>
+          <p>Price between 200 - 650</p>
+        </div>
+        <mat-slider min="1" max="1000" class="my-3" style="width: 90%">
+          <input value="100" matSliderStartThumb />
+          <input value="800" matSliderEndThumb />
+        </mat-slider>
+      </div>
+
+      <mat-list>
+        <div mat-subheader>Filters</div>
+        <mat-list-item> </mat-list-item>
+        <mat-divider></mat-divider>
+        <div mat-subheader>Notes</div>
+        <mat-list-item> </mat-list-item>
+      </mat-list>
+    </mat-drawer>
   </mat-drawer-container>
 </div>

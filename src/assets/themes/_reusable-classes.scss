@@ -3,6 +3,7 @@
 @mixin reusable($theme) {
   .btn-primary {
     @include mat.button-color($theme, $color-variant: primary);
+    @include mat.icon-color($theme, $color-variant: primary);
   }
   .btn-secondary {
     @include mat.button-color($theme, $color-variant: secondary);
@@ -12,5 +13,9 @@
   }
   .btn-error {
     @include mat.button-color($theme, $color-variant: error);
+  }
+
+  a.active {
+    background-color: rgba(mat.get-theme-color($theme, primary), 15%);
   }
 }
